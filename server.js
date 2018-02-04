@@ -17,6 +17,7 @@ app.use((req, res, next) => {
   next();
 })
 
+app.use('/vendor', express.static(path.join(__dirname, 'stylesheets')));
 app.use('/vendor', express.static(path.join(__dirname, 'node_modules')));
 app.use('/items', require('./routes/items.js'))
 

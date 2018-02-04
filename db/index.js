@@ -19,10 +19,9 @@ const sync = () => {
 // adds data to table
 const seed = () => {
   Promise.all([
-    List.create({name: 'Bananas', price: '.75', quantity: '5'}),
+    List.create({name: 'Bananas', price: '.75/lb', quantity: '5'}),
     List.create({ name: 'Rice', price: '3', quantity: '1' }),
-    List.create({ name: 'Ground beef', price: '4', quantity: '2' }),
-    List.create({ name: 'Sliced turkey', price: '7', quantity: '1' }),
+    List.create({ name: 'Ground beef', price: '4/lb', quantity: '2' }),
   ])
 }
 
