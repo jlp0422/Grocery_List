@@ -38,9 +38,9 @@ app.delete('/:id', (req, res, next) => {
 app.patch('/:id', (req, res, next) => {
   List.findById(req.params.id)
     .then(item => {
-      item.name = req.body.name,
-      item.price = req.body.price,
-      item.quantity = req.body.quantity
+      if (req.body.name) item.name = req.body.name
+      if (req.body.price) item.price = req.body.price
+      if (req.body.quantity) item.quantity = req.body.quantity
       return item.save()
     })
     .then( () => res.redirect(`/items/${req.params.id}`))

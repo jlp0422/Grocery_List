@@ -11,25 +11,25 @@
       </div>
       <div class="form-group col-md-3">
         <label>Price</label>
-        <input class="form-control" type="number" name="price" placeholder="Price">
+        <input class="form-control" type="text" name="price" placeholder="Price">
       </div>
       <div class="form-group col-md-3">
         <label>Quantity</label>
-        <input class="form-control" type="number" name="quantity" placeholder="Quantity">
+        <input class="form-control" type="text" name="quantity" placeholder="Quantity">
       </div>
     </div>
-    <button class="btn btn-primary">Add Item</button>
+    <button class="btn btn-outline-primary">Add Item</button>
   </div>
 </form>
 
 
-<ul class="list-group">
+<ul style="margin-bottom:30px" class="list-group">
   {% for item in items %}
   <li class="list-group-item">
     <a style="font-size:20px;font-weight:bold;" href="/items/{{item.id}}">{{item.name}}</a>
     <p style="font-size:14px;">Quantity: {{item.quantity}}</p>
     <form method="POST" action="/items/{{item.id}}?_method=DELETE">
-      <button class="btn btn-danger">Delete</button>
+      <button class="btn btn-outline-danger">Delete</button>
     </form>
   </li>
   {% endfor %}
