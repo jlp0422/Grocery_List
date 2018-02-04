@@ -1,0 +1,36 @@
+{% extends './layout.html' %}
+
+{% block content %}
+
+<div>
+  <div style="margin:10px 0px;">
+    <h3>Item: {{item.name}}</h3>
+    <form method="POST" action="/items/{{item.id}}?_method=PATCH">
+      <input type="text" name="name" placeholder="Item name"/>
+      <button class="btn btn-success">Update</button>
+    </form>
+  </div>
+
+  <div style="margin:10px 0px;">
+    <h5>Quantity: {{ item.quantity}}</h5>
+    <form method="POST" action="/items/{{item.id}}?_method=PATCH">
+      <input type="number" name="quantity" placeholder="Item quantity"/>
+      <button class="btn btn-success">Update</button>
+    </form>
+  </div>
+
+  <div style="margin:10px 0px 30px 0px;;">
+    <h5>Price: ${{ item.price}}</h5>
+    <form method="POST" action="/items/{{item.id}}?_method=PATCH">
+      <input type="number" name="price" placeholder="Item price"/>
+      <button class="btn btn-success">Update</button>
+    </form>
+  </div>
+</div>
+
+<form style="margin-bottom:20px" method="POST" action="/items/{{item.id}}?_method=DELETE">
+  <button class="btn btn-danger">Delete Item</button>
+</form>
+
+<a href="/items">Back to list &raquo;</a>
+{% endblock %}
