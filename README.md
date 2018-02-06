@@ -4,4 +4,4 @@
 
 #### There are a few pre-set items, but feel free to delete!
 
-#### Live link at: [https://vast-wave-97153.herokuapp.com/]
+#### Live link at: [https://sequelize-grocery.herokuapp.com/]
