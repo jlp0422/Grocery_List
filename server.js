@@ -36,9 +36,16 @@ app.get('/', (req, res, next) => {
   res.render('index', {title: 'Grocery List Application'})
 })
 
+// app.get('/', (req, res, next) => {
+//   return new Promise.resolve(
+//     res.render('index', { title: 'Grocery List Application' })
+//   )
+//   .catch(next)
+// })
+
 app.get('/:slash', (req, res, next) => {
   if (req.params.slash !== 'users') {
-    res.render('error', { title: 'Uh oh' });
+    res.render('error', { error: 'You reached an invalid page', title: 'Uh oh' });
   }
 })
 
