@@ -6,9 +6,27 @@ const _conn = new Sequelize(process.env.DATABASE_URL);
 
 // creates table, module to export
 const List = _conn.define('item', {
-  name: Sequelize.STRING,
-  price: Sequelize.STRING,
-  quantity: Sequelize.STRING
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    }
+  },
+  price: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    }
+  },
+  quantity: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    }
+  }
 });
 
 // creates table, drops when re-ran
