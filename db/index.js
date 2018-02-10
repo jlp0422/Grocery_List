@@ -2,29 +2,43 @@
 
 // creates connection to database
 const Sequelize = require('sequelize');
-const _conn = new Sequelize(process.env.DATABASE_URL);
+const _conn = new Sequelize(process.env.DATABASE_URL, {
+  logging: false
+});
 
 // creates table, module to export
 const List = _conn.define('item', {
   name: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: {
+      msg: 'Please enter an item'
+    },
     validate: {
-      notEmpty: true,
+      notEmpty: {
+        msg: 'Please enter an item'
+      },
     }
   },
   price: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: {
+      msg: 'Please enter a price'
+    },
     validate: {
-      notEmpty: true,
+      notEmpty: {
+        msg: 'Please enter a price'
+      },
     }
   },
   quantity: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: {
+      msg: 'Please enter a quantity'
+    },
     validate: {
-      notEmpty: true,
+      notEmpty: {
+        msg: 'Please enter a quantity'
+      },
     }
   }
 });

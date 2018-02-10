@@ -35,3 +35,13 @@ db.sync()
 app.get('/', (req, res, next) => {
   res.render('index', {title: 'Grocery List Application'})
 })
+
+app.get('/:slash', (req, res, next) => {
+  if (req.params.slash !== 'users') {
+    res.render('error', { title: 'Uh oh' });
+  }
+})
+
+app.use((err, req, res, next) => {
+  res.render('error', {error: err, title: 'Uh oh'})
+});

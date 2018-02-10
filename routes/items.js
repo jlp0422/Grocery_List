@@ -9,13 +9,13 @@ module.exports = app;
 app.get('/', (req, res, next) => {
   List.findAll()
     .then( items => res.render('items', {title: 'Grocery List', items}))
-    .catch( err => next(err))
+    .catch(next)
 });
 
 app.get('/:id', (req, res, next) => {
   List.findById(req.params.id)
     .then( item => res.render('item', {title: `${item.name}`, item}))
-    .catch( err => next(err))
+    .catch(next)
 })
 
 app.post('/', (req, res, next) => {
@@ -25,14 +25,14 @@ app.post('/', (req, res, next) => {
     quantity: req.body.quantity
   })
   .then( () => res.redirect('/items'))
-  .catch(err => next(err))
+  .catch(next)
 });
 
 app.delete('/:id', (req, res, next) => {
   List.findById(req.params.id)
     .then(item => item.destroy())
     .then( () => res.redirect('/items'))
-    .catch( err => next(err))
+    .catch(next)
 })
 
 app.patch('/:id', (req, res, next) => {
@@ -44,5 +44,5 @@ app.patch('/:id', (req, res, next) => {
       return item.save()
     })
     .then( () => res.redirect(`/items/${req.params.id}`))
-    .catch( err => next(err));
+    .catch(next);
 })
